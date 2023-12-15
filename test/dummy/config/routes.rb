@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  mount WcoEmail::Engine => "/wco_email"
+
+
+  root to: 'application#home'
+  # root to: redirect('/email')
+
+  mount WcoEmail::Engine => "/email"
+
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+  }
+  resources :users
+
 end

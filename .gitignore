@@ -1,7 +1,8 @@
 *trash
 vendor
 node_modules
-
+ish_models
+ish_models3
 
 /.bundle/
 /doc/

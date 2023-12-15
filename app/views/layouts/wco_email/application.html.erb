@@ -9,7 +9,15 @@
 </head>
 <body>
 
-<%= yield %>
+  <nav>
+    <ul>
+      <li><%= link_to 'Email Conversations', email_conversations_path %></li>
+    </ul>
+  </nav>
+
+  <hr />
+  <%= yield %>
+  <hr />
 
 </body>
 </html>
