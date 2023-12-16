@@ -1,8 +1,7 @@
-require_relative "lib/wco_email/version"
 
 Gem::Specification.new do |spec|
-  spec.name        = "wco_email"
-  spec.version     = WcoEmail::VERSION
+  spec.name        = "wco_hosting"
+  spec.version     = "$version"
   spec.authors     = [ "Victor Pudeyev" ]
   spec.email       = ["victor@wasya.co"]
   spec.homepage    = "https://wasya.co"
@@ -10,6 +9,9 @@ Gem::Specification.new do |spec|
   spec.description = "https://wasya.co"
   spec.license     = "Proprietary"
 
+  ##
+  ## Edit the template, not the gemspec!
+  ##
   spec.metadata["homepage_uri"]    = spec.homepage
   spec.metadata["source_code_uri"] = "https://wasya.co"
   spec.metadata["changelog_uri"]   = "https://wasya.co"

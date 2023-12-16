@@ -1,7 +1,7 @@
 
 require 'ish_models'
 
-class WcoEmail::ApplicationController < ActionController::Base
+class WcoHosting::ApplicationController < ActionController::Base
 
   check_authorization
 
@@ -15,7 +15,7 @@ class WcoEmail::ApplicationController < ActionController::Base
   private
 
   def current_ability
-    @current_ability ||= ::WcoEmail::Ability.new(current_user)
+    @current_ability ||= ::WcoHosting::Ability.new(current_user)
   end
 
   def current_profile

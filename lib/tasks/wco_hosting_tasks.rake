@@ -1,5 +1,5 @@
 
-namespace :wco_email do
+namespace :wco_hosting do
 
   desc "seed"
   task :seed => :environment do

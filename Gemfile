@@ -18,7 +18,7 @@ group :development, :test do
 
   gem 'omniauth', '~> 2.1.1'
   gem "omniauth-keycloak",              "~> 1.5.1"
-  ## Required by wco_email, by keycloak to be in the host app.
+  ## Required by wco_hosting, by keycloak to be in the host app.
   # gem "omniauth-rails_csrf_protection", "~> 1.0.1"
 
 
