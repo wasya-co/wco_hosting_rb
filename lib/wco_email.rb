@@ -1,4 +1,5 @@
 
+require 'cancancan'
 require 'haml'
 
 require "wco_email/version"

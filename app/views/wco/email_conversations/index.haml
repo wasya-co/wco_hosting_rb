@@ -1,0 +1,6 @@
+
+%h5 Email Conversations (#{@email_conversations.length})
+
+%ul
+  - @email_conversations.each do |conv|
+    %li= conv.subject

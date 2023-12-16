@@ -1,4 +1,10 @@
-# desc "Explaining what the task does"
-# task :wco_email do
-#   # Task goes here
-# end
+
+namespace :wco_email do
+
+  desc "seed"
+  task :seed => :environment do
+    puts! 'seeding'
+  end
+
+end
+

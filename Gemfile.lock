@@ -1,24 +1,17 @@
 PATH
   remote: .
   specs:
-    ish_models (3.1.0.3)
-      kaminari-mongoid (~> 1.0.1)
-      mongoid (~> 7.3.0)
-      mongoid-autoinc (~> 6.0)
-      mongoid-paperclip
-      mongoid_paranoia
-      rails (~> 6.1.0)
     wco_email (0.1.0)
       cancancan (~> 3.5.0)
       devise (~> 4.9.3)
       haml (~> 6.3.0)
-      ish_models (~> 3.1.0.3)
+      ish_models (~> 3.1)
       kaminari-mongoid (~> 1.0.1)
       mongoid (~> 7.3.0)
       mongoid-autoinc (~> 6.0.3)
       mongoid-paperclip (~> 0.1.0)
       mongoid_paranoia (~> 0.6.0)
-      rails (~> 6.1.0)
+      rails (~> 6.1.7)
 
 GEM
   remote: https://rubygems.org/
@@ -118,6 +111,13 @@ GEM
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
+    ish_models (3.1.0.4)
+      kaminari-mongoid (~> 1.0.1)
+      mongoid (~> 7.3.0)
+      mongoid-autoinc (~> 6.0)
+      mongoid-paperclip
+      mongoid_paranoia
+      rails (~> 6.1.0)
     json-jwt (1.16.3)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -195,9 +195,6 @@ GEM
     omniauth-oauth2 (1.7.3)
       oauth2 (>= 1.4, < 3)
       omniauth (>= 1.9, < 3)
-    omniauth-rails_csrf_protection (1.0.1)
-      actionpack (>= 4.2)
-      omniauth (~> 2.0)
     orm_adapter (0.5.0)
     racc (1.7.3)
     rack (2.2.8)
@@ -220,6 +217,10 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.7.6)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -286,11 +287,10 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  devise (~> 4.9.3)
   omniauth (~> 2.1.1)
   omniauth-keycloak (~> 1.5.1)
-  omniauth-rails_csrf_protection (~> 1.0.1)
-  rspec-rails
+  rails-controller-testing (~> 1.0.5)
+  rspec-rails (~> 6.1.0)
   wco_email!
 
 BUNDLED WITH

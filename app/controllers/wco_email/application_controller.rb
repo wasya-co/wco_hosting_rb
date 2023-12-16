@@ -3,8 +3,10 @@ require 'ish_models'
 
 class WcoEmail::ApplicationController < ActionController::Base
 
+  check_authorization
+
   def home
-    ;
+    authorize! :index, ::Wco::EmailConversation
   end
 
   ##
