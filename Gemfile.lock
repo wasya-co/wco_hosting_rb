@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wco_email (0.1.0)
+    wco_hosting (0.0.0.0)
       cancancan (~> 3.5.0)
       devise (~> 4.9.3)
       haml (~> 6.3.0)
@@ -11,6 +11,8 @@ PATH
       mongoid-autoinc (~> 6.0.3)
       mongoid-paperclip (~> 0.1.0)
       mongoid_paranoia (~> 0.6.0)
+      net-scp
+      net-ssh (~> 7.2.0)
       rails (~> 6.1.7)
 
 GEM
@@ -171,8 +173,11 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
+    net-scp (4.0.0)
+      net-ssh (>= 2.6.5, < 8.0.0)
     net-smtp (0.4.0)
       net-protocol
+    net-ssh (7.2.0)
     nio4r (2.7.0)
     nokogiri (1.15.5-x86_64-darwin)
       racc (~> 1.4)
@@ -291,7 +296,7 @@ DEPENDENCIES
   omniauth-keycloak (~> 1.5.1)
   rails-controller-testing (~> 1.0.5)
   rspec-rails (~> 6.1.0)
-  wco_email!
+  wco_hosting!
 
 BUNDLED WITH
    2.3.24

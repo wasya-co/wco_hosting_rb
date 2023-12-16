@@ -2,7 +2,8 @@
 
 require 'cancancan'
 
-class WcoHosting::Ability
+## v0.0.0
+class Wco::Ability
   include ::CanCan::Ability
 
   def initialize(user)

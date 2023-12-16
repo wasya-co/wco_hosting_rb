@@ -1,12 +1,10 @@
 
-require 'ish_models'
-
 class WcoHosting::ApplicationController < ActionController::Base
 
   check_authorization
 
   def home
-    authorize! :index, ::Wco::EmailConversation
+    authorize! :index, ::WcoHosting::Appliance
   end
 
   ##
@@ -15,11 +13,15 @@ class WcoHosting::ApplicationController < ActionController::Base
   private
 
   def current_ability
-    @current_ability ||= ::WcoHosting::Ability.new(current_user)
+    @current_ability ||= ::Wco::Ability.new(current_user)
   end
 
   def current_profile
     @current_profile ||= Wco::Profile.find_by( email: current_user.email )
+  end
+
+  def current_leadset
+    @current_leadset ||= current_profile.leadset
   end
 
 end
