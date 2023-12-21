@@ -10,9 +10,11 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', "~> 6.1.0"
   gem 'rails-controller-testing', "~> 1.0.5"
+  gem 'factory_bot_rails'
+
+  gem 'ish_models', '~> 3.1.0.15'
 
   ## Nothing gets pulled via gemspec ?!
-  # gem 'ish_models', '~> 3.1.0.4'
   # gem 'cancancan', "~> 3.5.0"
   # gem 'devise',    "~> 4.9.3"
 

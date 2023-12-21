@@ -1,11 +1,8 @@
 
-module Wco
-end
-
-module WcoHosting
-end
+module Wco; end
+module WcoHosting; end
 
 class WcoHosting::Engine < ::Rails::Engine
   isolate_namespace WcoHosting
-  isolate_namespace Wco
+  # isolate_namespace Wco
 end

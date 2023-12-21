@@ -33,7 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'kaminari-mongoid',  '~> 1.0.1'
 
   spec.add_dependency 'net-ssh', "~> 7.2.0"
-  spec.add_dependency 'net-scp'
+  spec.add_dependency 'net-scp', "~> 4.0.0"
 
+  spec.add_dependency 'sass-rails', '~> 5.0'
 
 end

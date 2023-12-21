@@ -1,5 +1,5 @@
 
-class WcoHosting::SessionsController < ApplicationController
+class WcoHosting::SessionsController < WcoHosting::ApplicationController
 
   skip_before_action :verify_authenticity_token, only: :create
 

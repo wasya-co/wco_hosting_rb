@@ -1,0 +1,19 @@
+
+- url = leadset.new_record? ? leadsets_path : leadset_path(leadset)
+.leadsets--form
+  %ul
+    %li <b>Next Serverhost:</b> #{leadset.next_serverhost}
+
+  = form_for leadset, as: :leadset, url: url do |f|
+    .field
+      = f.label :company_url
+      = f.text_field :company_url
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :serverhosts
+      = f.select :serverhost_ids, options_for_select(@serverhosts_list, selected: leadset.serverhosts.map(&:id) ), {}, { multiple: true }
+
+    .actions
+      = f.submit

@@ -1,0 +1,13 @@
+
+.leadsets-index
+  %h5 Leadsets
+
+  %ul
+    - @leadsets.each do |leadset|
+      %li.flex-row
+        .gray= leadset.id.to_s
+        &nbsp;&nbsp;
+        = link_to "[view]", leadset_path(leadset)
+        %ul
+          %li <b>company_url:</b> #{leadset.company_url}
+          %li <b>serverhosts:</b> #{leadset.serverhosts.map(&:name).join(",")}
