@@ -10,7 +10,7 @@
       %th next_port
       %th public_ip
       %th ssh_host
-      %td &nbsp;
+      -# %td &nbsp;
     - @serverhosts.each do |s|
       %tr
         %td
@@ -18,6 +18,5 @@
         %td= s.ssh_host
         %td= s.next_port
         %td= s.public_ip
-        %td
-          = s.inspect
+        -# %td= s.inspect
 
