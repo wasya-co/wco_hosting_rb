@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wco_hosting (0.0.0.2)
+    wco_hosting (0.0.0.3)
       cancancan (~> 3.5.0)
       devise (~> 4.9.3)
       haml (~> 6.3.0)

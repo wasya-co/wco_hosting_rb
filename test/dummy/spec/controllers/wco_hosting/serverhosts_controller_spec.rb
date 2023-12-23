@@ -9,6 +9,11 @@ RSpec::describe WcoHosting::ServerhostsController do
     sign_in @user
   end
 
+  it '#new' do
+    get :new
+    response.code.should eql '200'
+  end
+
   it '#index' do
     get :index
     response.code.should eql '200'
