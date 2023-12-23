@@ -6,9 +6,9 @@ class WcoHosting::ServerhostsController < WcoHosting::ApplicationController
     @serverhosts = WcoHosting::Serverhost.all
   end
 
-  def show
+  def edit
     @serverhost = WcoHosting::Serverhost.find params[:id]
-    authorize! :show, @serverhost
+    authorize! :edit, @serverhost
   end
 
   def update

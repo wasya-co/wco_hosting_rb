@@ -1,4 +1,22 @@
 
+table.bordered {
+
+  border: 1px solid gray;
+  border-bottom: 0;
+  border-right: 0;
+
+  th {
+    background: #ddd;
+  }
+
+  td {
+    border: 1px solid gray;
+    border-top: 0;
+    border-left: 0;
+  }
+
+}
+
 .flex-row {
   display: flex;
 }

@@ -1,12 +1,21 @@
 
 .serverhosts-index
   %h5 Serverhosts
-  %ul
+
+  %table.bordered
+    %tr
+      %th name
+      %th next_port
+      %th public_ip
+      %th ssh_host
+      %td &nbsp;
     - @serverhosts.each do |s|
-      %li.flex-row
-        .gray= s.id
-        &nbsp;&nbsp;
-        = link_to "[view]", edit_serverhost_path(s)
-        &nbsp;
-        = s.name
+      %tr
+        %td
+          = link_to s.name, edit_serverhost_path(s)
+        %td= s.ssh_host
+        %td= s.next_port
+        %td= s.public_ip
+        %td
+          = s.inspect
 

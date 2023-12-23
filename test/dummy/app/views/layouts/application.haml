@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %title WcoHosting Dummy
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all'
+  %body
+    WcoHosting Dummy. Main app: #{link_to 'hosting', '/hosting'}
+    -# %nav
+    -#   %ul
+    -#     %li= link_to 'hosting', '/hosting'
+
+    %hr
+    = yield
+    %hr
+
+    - if current_user
+      = current_user.email
+      = button_to 'Sign Out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' }
+    - else
+      = link_to 'Login', new_user_session_path

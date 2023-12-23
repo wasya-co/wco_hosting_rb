@@ -1,0 +1,23 @@
+
+.appliance-tmpls-index
+  %h5 ApplianceTmpl's
+
+  %table.bordered
+    %tr
+      %th id
+      %th kind
+      %th version
+      %th image
+      %th volume_zip
+      -# %td &nbsp;
+
+    - @appliance_tmpls.each do |tmpl|
+      %tr
+        %td= tmpl.id
+        %td= tmpl.kind
+        %td= tmpl.version
+        %td= tmpl.image
+        %td= tmpl.volume_zip
+        -# %td= tmpl.inspect
+
+

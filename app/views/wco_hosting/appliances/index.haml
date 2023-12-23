@@ -1,0 +1,21 @@
+
+.appliances-index
+  %h5 Appliances
+
+  %table.bordered
+    %tr
+      %th id
+      %th tmpl
+      %th host
+      %th service_name
+      %td &nbsp;
+    - @appliances.each do |app|
+      %tr
+        %td= app.id
+        %td= app.tmpl.inspect
+        %td= app.host
+        %td= app.service_name
+        %td
+          = app.inspect
+
+

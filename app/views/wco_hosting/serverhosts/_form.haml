@@ -1,0 +1,22 @@
+
+.serverhosts--form
+  = form_for serverhost do |f|
+
+    .field
+      = f.label :name
+      = f.text_field :name
+
+    .field
+      = f.label :next_port
+      = f.text_field :next_port
+
+    .field
+      = f.label :public_ip
+      = f.text_field :public_ip
+
+    .field
+      = f.label :ssh_host
+      = f.text_field :ssh_host
+
+    .actions
+      = f.submit

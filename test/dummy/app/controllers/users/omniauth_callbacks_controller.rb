@@ -2,7 +2,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def keycloakopenid
-    Rails.logger.debug(request.env["omniauth.auth"])
+    puts! request.env["omniauth.auth"], 'request.env["omniauth.auth"]'
 
     @user = User.from_omniauth(request.env["omniauth.auth"])
     if @user.persisted?
