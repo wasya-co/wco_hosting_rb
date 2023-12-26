@@ -2,12 +2,21 @@
 .leadsets-index
   %h5 Leadsets
 
-  %ul
-    - @leadsets.each do |leadset|
-      %li.flex-row
-        .gray= leadset.id.to_s
-        &nbsp;&nbsp;
-        = link_to "[view]", leadset_path(leadset)
-        %ul
-          %li <b>company_url:</b> #{leadset.company_url}
-          %li <b>serverhosts:</b> #{leadset.serverhosts.map(&:name).join(",")}
+  %table.bordered
+    %tr
+      %th &nbsp;
+      %th company_url
+      %th serverhosts
+      %th customer_id
+      %td &nbsp;
+    - @leadsets.each do |item|
+      %tr
+        %td
+          = link_to '[~]', edit_leadset_path(item)
+        %td= item.company_url
+        %td= item.serverhosts.map(&:name).join(",")
+        %td= item.customer_id
+        %td
+          = item.inspect
+
+

@@ -6,12 +6,11 @@
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
     = csrf_meta_tags
     = csp_meta_tag
+    = javascript_pack_tag 'application'
     = stylesheet_link_tag 'application', media: 'all'
   %body
-    WcoHosting Dummy. Main app: #{link_to 'hosting', '/hosting'}
-    -# %nav
-    -#   %ul
-    -#     %li= link_to 'hosting', '/hosting'
+    WcoHosting Dummy. Main app:
+    = link_to 'hosting', '/hosting'
 
     %hr
     = yield

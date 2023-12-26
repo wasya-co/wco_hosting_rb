@@ -12,11 +12,9 @@ group :development, :test do
   gem 'rails-controller-testing', "~> 1.0.5"
   gem 'factory_bot_rails'
 
-  gem 'ish_models', '~> 3.1.0.15'
+  gem 'webpacker'
 
-  ## Nothing gets pulled via gemspec ?!
-  # gem 'cancancan', "~> 3.5.0"
-  # gem 'devise',    "~> 4.9.3"
+  gem 'ish_models', '~> 3.1.0.15'
 
   gem 'omniauth',                       '~> 2.1.1'
   gem "omniauth-keycloak",              "~> 1.5.1"
