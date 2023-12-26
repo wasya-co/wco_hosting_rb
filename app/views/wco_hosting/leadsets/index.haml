@@ -13,7 +13,7 @@
       %tr
         %td
           = link_to '[~]', edit_leadset_path(item)
-        %td= item.company_url
+        %td= link_to item.company_url, leadset_path(item)
         %td= item.serverhosts.map(&:name).join(",")
         %td= item.customer_id
         %td

@@ -1,8 +1,6 @@
 
 - url = leadset.new_record? ? leadsets_path : leadset_path(leadset)
 .leadsets--form
-  %ul
-    %li <b>Next Serverhost:</b> #{leadset.next_serverhost}
 
   = form_for leadset, as: :leadset, url: url do |f|
     .field

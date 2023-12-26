@@ -9,7 +9,8 @@ WcoHosting::Engine.routes.draw do
   # get 'email_conversations/not-in/:tagname_not', to: '/wco/email_conversations#index', as: :email_conversations_in_not
   # resources :email_conversations
 
-  resources :serverhosts
   resources :leadsets
+
+  resources :serverhosts
 
 end

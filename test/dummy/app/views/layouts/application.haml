@@ -9,8 +9,9 @@
     = javascript_include_tag 'wco_hosting/application'
     -# = stylesheet_link_tag 'application', media: 'all'
   %body
+    #{link_to '/wco', '/wco' }
     WcoHosting Dummy. Main app:
-    = link_to 'hosting', '/hosting'
+    = link_to '/hosting', '/hosting'
 
     %hr
     = yield

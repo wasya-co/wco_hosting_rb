@@ -1,5 +1,13 @@
 
 .leadsets-show
-  %h5 Leadset #{@leadset.inspect}
+  %h5 Leadset `#{@leadset.company_url}`
+
+  %ul
+    %li <b>Next Serverhost:</b> #{@leadset.next_serverhost}
+    %li
+      <b>Subscriptions (#{@leadset.subscriptions.length}):</b>
+      %ul
+        - @leadset.subscriptions.each do |item|
+          %li= item.inspect
 
   = render '/wco_hosting/leadsets/form', leadset: @leadset
