@@ -12,9 +12,9 @@ group :development, :test do
   gem 'rails-controller-testing', "~> 1.0.5"
   gem 'factory_bot_rails'
 
-  gem 'webpacker'
+  # gem 'webpacker'
 
-  gem 'ish_models', '~> 3.1.0.15'
+  gem 'ish_models',  github: 'wasya-co/ish_models',     branch: '3.1.0'
 
   gem 'omniauth',                       '~> 2.1.1'
   gem "omniauth-keycloak",              "~> 1.5.1"
