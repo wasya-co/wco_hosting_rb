@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/wasya-co/wco_models.git
-  revision: 8c7ddb50febc2ed48496a49fa6d781b3f466320e
+  revision: 981442865676e58a084b326dc86bb1c312d2b552
   branch: 3.1.0
   specs:
-    wco_models (3.1.0.33)
+    wco_models (3.1.0.34)
       aws-sdk-s3
       cancancan (~> 3.5.0)
       devise (~> 4.9.3)
@@ -23,7 +23,7 @@ GIT
 PATH
   remote: .
   specs:
-    wco_hosting (0.0.0.6)
+    wco_hosting (0.0.0.7)
       cancancan (~> 3.5.0)
       devise (~> 4.9.3)
       haml (~> 6.3.0)
@@ -226,7 +226,7 @@ GEM
     mongoid_paranoia (0.6.0)
       mongoid (>= 7.3)
     multi_xml (0.6.0)
-    net-imap (0.4.8)
+    net-imap (0.4.9)
       date
       net-protocol
     net-pop (0.1.2)
