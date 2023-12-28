@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |spec|
   spec.name        = "wco_hosting"
-  spec.version     = "0.0.0.7"
+  spec.version     = "0.0.0.8"
   spec.authors     = [ "Victor Pudeyev" ]
   spec.email       = ["victor@wasya.co"]
   spec.homepage    = "https://wasya.co"
