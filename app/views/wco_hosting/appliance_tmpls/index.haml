@@ -6,20 +6,25 @@
 
   %table.bordered
     %tr
-      %th id
+      %th &nbsp;
       %th kind
       %th version
       %th image
       %th volume_zip
-      -# %td &nbsp;
+      %th price
+      %td &nbsp;
 
     - @appliance_tmpls.each do |tmpl|
       %tr
-        %td= tmpl.id
+        %td
+          = link_to '[~]', edit_appliance_tmpl_path(tmpl)
         %td= tmpl.kind
         %td= tmpl.version
         %td= tmpl.image
         %td= tmpl.volume_zip
-        -# %td= tmpl.inspect
-
+        %td
+          = tmpl.price
+          %br
+          = tmpl.price_id
+        %td= tmpl.inspect
 

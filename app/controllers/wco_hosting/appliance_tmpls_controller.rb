@@ -4,8 +4,10 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
   before_action :set_lists
 
   def create
-    @appliance_tmpl = WcoHosting::ApplianceTmpl.new params[:appliance].permit!
+    @appliance_tmpl = WcoHosting::ApplianceTmpl.new params[:tmpl].permit!
     authorize! :create, @appliance_tmpl
+
+    @appliance_tmpl.price_id = Wco::Price.find( params[:tmpl][:wco_price_id] ).price_id
 
     flag = @appliance_tmpl.save
     if flag
@@ -35,7 +37,15 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
   def update
     @appliance_tmpl = WcoHosting::ApplianceTmpl.find params[:id]
     authorize! :update, @appliance_tmpl
-    flag = @appliance_tmpl.update params[:appliance].permit!
+
+    price = Wco::Price.find( params[:tmpl][:price] )
+    price.product = @appliance_tmpl
+    price.save
+
+    params[:tmpl][:price_id] = price.price_id
+    params[:tmpl][:price] = price
+
+    flag = @appliance_tmpl.update params[:tmpl].permit!
     if flag
       flash_notice 'success'
     else
@@ -50,6 +60,7 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
   private
 
   def set_lists
+    @prices_list        = Wco::Price.list
     @new_appliance_tmpl = WcoHosting::ApplianceTmpl.new
   end
 

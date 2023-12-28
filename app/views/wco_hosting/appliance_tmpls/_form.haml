@@ -2,7 +2,7 @@
 - url = appliance_tmpl.new_record? ? appliance_tmpls_path : appliance_tmpl_path( appliance_tmpl )
 
 .appliance-tmpls--form
-  = form_for appliance_tmpl, as: :appliance, url: url do |f|
+  = form_for appliance_tmpl, as: :tmpl, url: url do |f|
     .field
       = f.label :kind
       = f.text_field :kind
@@ -18,6 +18,9 @@
     .field
       %label volume_zip
       = f.text_field :volume_zip, class: 'w-100'
+    .field
+      %label price
+      = f.select :price, options_for_select( @prices_list, selected: appliance_tmpl.price )
 
     .actions
       = f.submit 'Submit'
