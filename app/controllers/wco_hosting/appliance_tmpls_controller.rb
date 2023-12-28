@@ -7,7 +7,12 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
     @appliance_tmpl = WcoHosting::ApplianceTmpl.new params[:tmpl].permit!
     authorize! :create, @appliance_tmpl
 
-    @appliance_tmpl.price_id = Wco::Price.find( params[:tmpl][:wco_price_id] ).price_id
+    price = Wco::Price.find( params[:tmpl][:price] )
+    price.product = @appliance_tmpl
+    price.save
+
+    params[:tmpl][:price_id] = price.price_id
+    params[:tmpl][:price] = price
 
     flag = @appliance_tmpl.save
     if flag
