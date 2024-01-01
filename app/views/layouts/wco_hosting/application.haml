@@ -29,3 +29,6 @@
     = yield
     %hr
 
+    %script{:src => "https://js.stripe.com/v3/"}
+    :javascript
+      stripe = Stripe('#{::STRIPE_PK}', { apiVersion: '2020-08-27' });
