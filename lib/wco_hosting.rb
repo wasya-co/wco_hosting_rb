@@ -1,6 +1,9 @@
 
 require 'cancancan'
+
 require 'haml'
+
+require 'sass'
 
 require "wco_hosting/engine"
 
