@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |spec|
   spec.name        = "wco_hosting"
-  spec.version     = "0.0.0.11"
+  spec.version     = "0.0.0.12"
   spec.authors     = [ "Victor Pudeyev" ]
   spec.email       = ["victor@wasya.co"]
   spec.homepage    = "https://wasya.co"
@@ -33,6 +33,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'net-ssh', "~> 7.2.0"
   spec.add_dependency 'net-scp', "~> 4.0.0"
+
+  ## not needed, it's in wco_models
+  # spec.add_dependency 'prawn'
+  # spec.add_dependency 'prawn-table'
 
   spec.add_dependency "rails",     "~> 6.1.7"
 
