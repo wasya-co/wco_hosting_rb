@@ -1,5 +1,5 @@
 
-.appliance-tmpls-index
+.appliance-tmpls-index.maxwidth
   %h5
     ApplianceTmpl's
     = link_to '[+]', new_appliance_tmpl_path
@@ -12,7 +12,6 @@
       %th image
       %th volume_zip
       %th price
-      %td &nbsp;
 
     - @appliance_tmpls.each do |tmpl|
       %tr
@@ -23,8 +22,9 @@
         %td= tmpl.image
         %td= tmpl.volume_zip
         %td
-          = tmpl.price
+          = tmpl.price.inspect
           %br
           = tmpl.price_id
-        %td= tmpl.inspect
+      %td
+        %td{ colspan: 6 }= tmpl.inspect
 

@@ -65,7 +65,7 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
   private
 
   def set_lists
-    @prices_list        = Wco::Price.list
+    # @prices_list        = Wco::Price.list
     @new_appliance_tmpl = WcoHosting::ApplianceTmpl.new
   end
 

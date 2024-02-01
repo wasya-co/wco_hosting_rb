@@ -3,10 +3,10 @@
 
 .appliance-tmpls--form
   = form_for appliance_tmpl, as: :tmpl, url: url do |f|
-    .field
+    .d-flex
       = f.label :kind
       = f.text_field :kind
-    .field
+
       = f.label :version
       = f.text_field :version
     .field
@@ -19,8 +19,10 @@
       %label volume_zip
       = f.text_field :volume_zip, class: 'w-100'
     .field
-      %label price
-      = f.select :price, options_for_select( @prices_list, selected: appliance_tmpl.price )
+      %label Price
+      -# = f.select :price, options_for_select( @prices_list, selected: appliance_tmpl.price )
 
     .actions
       = f.submit 'Submit'
+
+  = appliance_tmpl.inspect

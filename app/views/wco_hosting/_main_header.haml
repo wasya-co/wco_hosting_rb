@@ -1,0 +1,11 @@
+
+.application--main-header.main-header{ class: "#{ENV['RAILS_ENV']} #{ENV['RAILS_ENV'][0...3]=="dev" ? "development" : ''}" }
+  .maxwidth
+    %i.fa.fa-compress.collapse-expand#collapseHeaderEmail
+      Wco Hosting
+    .flex-row
+      %ul
+        %li= link_to 'ApplianceTmpl`s', appliance_tmpls_path
+        %li= link_to 'Appliances', appliances_path
+        %li= link_to 'Serverhosts', serverhosts_path
+

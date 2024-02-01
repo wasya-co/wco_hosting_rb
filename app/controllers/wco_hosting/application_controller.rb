@@ -12,9 +12,9 @@ class WcoHosting::ApplicationController < ActionController::Base
   ##
   private
 
-  def current_ability
-    @current_ability ||= ::Wco::Ability.new(current_user)
-  end
+  # def current_ability
+  #   @current_ability ||= ::Wco::Ability.new(current_user)
+  # end
 
   def current_profile
     @current_profile ||= Wco::Profile.find_by( email: current_user.email )
