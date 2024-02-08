@@ -19,8 +19,10 @@
       %label volume_zip
       = f.text_field :volume_zip, class: 'w-100'
     .field
-      %label Price
-      -# = f.select :price, options_for_select( @prices_list, selected: appliance_tmpl.price )
+      %label Price in Cents
+      = f.number_field :tmp_price_cents
+      %label Price interval
+      = f.select :tmp_price_interval, options_for_select( Wco::Price::INTERVALS, selected: appliance_tmpl.price ), class: 'select2'
 
     .actions
       = f.submit 'Submit'
