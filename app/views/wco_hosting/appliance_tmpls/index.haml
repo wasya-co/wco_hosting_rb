@@ -11,7 +11,7 @@
       %th version
       %th image
       %th volume_zip
-      %th price
+      %th prices
 
     - @appliance_tmpls.each do |tmpl|
       %tr
@@ -22,9 +22,13 @@
         %td= tmpl.image
         %td= tmpl.volume_zip
         %td
-          = tmpl.price.inspect
-          %br
-          = tmpl.price_id
-      %td
-        %td{ colspan: 6 }= tmpl.inspect
+          %ul
+            - tmpl.prices.each do |price|
+              %li
+                .d-flex
+                  = button_to 'x', wco.price_path(price), method: :delete, data: { confirm: 'Are you sure?' }
+                  = price
+                .gray.mini= price.price_id
+      -# %td
+      -#   %td{ colspan: 6 }= tmpl.inspect
 

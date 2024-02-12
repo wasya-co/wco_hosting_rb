@@ -3,6 +3,12 @@
 
 .appliance-tmpls--form
   = form_for appliance_tmpl, as: :tmpl, url: url do |f|
+    .actions
+      = f.submit 'Submit'
+
+
+      -# = f.select :leadset_ids, options_for_select( @leadsets_list, selected: appliance_tmpl.leadset_ids ), {}, { multiple: true }
+
     .d-flex
       = f.label :kind
       = f.text_field :kind
@@ -18,13 +24,20 @@
     .field
       %label volume_zip
       = f.text_field :volume_zip, class: 'w-100'
-    .field
-      %label Price in Cents
-      = f.number_field :tmp_price_cents
-      %label Price interval
-      = f.select :tmp_price_interval, options_for_select( Wco::Price::INTERVALS, selected: appliance_tmpl.price ), class: 'select2'
+    -# .field
+    -#   %label Price in Cents
+    -#   = f.number_field :tmp_price_cents
+    -#   %label Price interval
+    -#   = f.select :tmp_price_interval, options_for_select( Wco::Price::INTERVALS ), class: 'select2'
 
     .actions
       = f.submit 'Submit'
+
+    .prices
+      %label Prices
+      %ul
+        - appliance_tmpl.prices.each do |price|
+          %li= price.inspect
+
 
   = appliance_tmpl.inspect

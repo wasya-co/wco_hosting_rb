@@ -1,4 +1,29 @@
 
 .appliance-tmpls-edit.maxwidth
   %h5 Edit ApplianceTmpl `#{@appliance_tmpl}`
+
+  .field
+    %label Customers
+    %ul
+      - @leadsets.each do |leadset|
+
+        - price = leadset.prices.where( product: @appliance_tmpl ).first
+        - price ||= Wco::Price.new({ product: @appliance_tmpl, leadset: leadset })
+        - url = price.new_record? ? wco.prices_path : wco.price_path(price)
+        - puts! price, 'price'
+        %li
+          = form_for price, url: url do |f|
+            = hidden_field_tag 'price[product_id]',   price.product_id
+            = hidden_field_tag 'price[product_type]', price.product_type
+            .d-flex
+              %b= leadset
+              &nbsp;
+              %label Amount Cents
+              = f.number_field :amount_cents
+              %label interval
+              = f.select :interval, options_for_select( Wco::Price::INTERVALS ), class: 'select2'
+              = f.submit '>'
+              = price.price_id.inspect
+  %hr
+
   = render 'form', appliance_tmpl: @appliance_tmpl
