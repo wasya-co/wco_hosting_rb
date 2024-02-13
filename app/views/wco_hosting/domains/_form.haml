@@ -1,0 +1,15 @@
+
+.domains--form
+  = form_for domain do |f|
+    .actions
+      = f.submit
+
+    .field
+      %label name
+      = f.text_field :name
+    .field
+      %label status
+      = f.select :status, [nil, 'active', 'inactive']
+
+    .actions
+      = f.submit

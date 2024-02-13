@@ -1,0 +1,32 @@
+
+.appliances-edit.maxwidth
+  %h5 Appliance `#{@appliance}`
+
+  = form_for @appliance do |f|
+    .actions
+      = f.submit
+    .field
+      %label.bold Leadset:
+      = link_to @appliance.leadset, wco.leadset_path(@appliance.leadset)
+    .field
+      %label.bold Env:
+      = @appliance.environment
+    .field
+      %label.bold Tmpl:
+      = @appliance.appliance_tmpl
+
+    .actions
+      = f.submit
+
+  .logs
+    %h5 Logs
+    %ul
+      - @appliance.logs.each do |log|
+        %li
+          = log.created_at
+          %b= log.label
+          %pre.descr= log.message
+
+  = @appliance.inspect
+
+

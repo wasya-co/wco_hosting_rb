@@ -3,18 +3,17 @@
   %h5 Edit ApplianceTmpl `#{@appliance_tmpl}`
 
   .field
-    %label Customers
+    %h5 Customers
     %ul
       - @leadsets.each do |leadset|
-
-        - price = leadset.prices.where( product: @appliance_tmpl ).first
-        - price ||= Wco::Price.new({ product: @appliance_tmpl, leadset: leadset })
+        - price = leadset.appliance_tmpl_prices.where( product: @appliance_tmpl ).first
+        - price ||= Wco::Price.new({ product: @appliance_tmpl, appliance_tmpl_leadset: leadset })
         - url = price.new_record? ? wco.prices_path : wco.price_path(price)
-        - puts! price, 'price'
         %li
           = form_for price, url: url do |f|
             = hidden_field_tag 'price[product_id]',   price.product_id
             = hidden_field_tag 'price[product_type]', price.product_type
+            = hidden_field_tag 'price[appliance_tmpl_leadset_id]', leadset.id
             .d-flex
               %b= leadset
               &nbsp;
@@ -23,7 +22,8 @@
               %label interval
               = f.select :interval, options_for_select( Wco::Price::INTERVALS ), class: 'select2'
               = f.submit '>'
-              = price.price_id.inspect
+              &nbsp;
+              .gray= price.price_id || 'nil'
   %hr
 
   = render 'form', appliance_tmpl: @appliance_tmpl

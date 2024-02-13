@@ -1,0 +1,19 @@
+
+.domains-index.maxwidth
+  %h5 Domains
+
+  %table.bordered
+    %thead
+      %td &nbsp;
+      %td name
+      %td status
+      -# %td &nbsp;
+
+    - @domains.each do |dom|
+      %tr
+        %td
+          = link_to '[~]', edit_domain_path(dom)
+        %td
+          = dom.name
+        %td= dom.status
+        -# %td= dom.inspect

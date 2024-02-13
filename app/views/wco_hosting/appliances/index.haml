@@ -1,21 +1,25 @@
 
-.appliances-index
+.appliances-index.maxwidth
   %h5 Appliances
 
-  %table.bordered
+  %table.bordered.data-table
     %tr
-      %th id
+      %th &nbsp;
+      %th created_at
       %th tmpl
       %th host
       %th service_name
-      %td &nbsp;
+
     - @appliances.each do |app|
       %tr
-        %td= app.id
-        %td= app.tmpl.inspect
+        %td
+          = link_to '[~]', edit_appliance_path(app)
+          -# = link_to '[view]', appliance_path(app)
+          .gray.mini= app.id
+        %td
+          = app.created_at
+        %td= app.tmpl
         %td= app.host
         %td= app.service_name
-        %td
-          = app.inspect
 
 

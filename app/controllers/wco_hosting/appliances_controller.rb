@@ -6,10 +6,10 @@ class WcoHosting::AppliancesController < WcoHosting::ApplicationController
     @appliances = WcoHosting::Appliance.all
   end
 
-  # def edit
-  #   @serverhost = WcoHosting::Serverhost.find params[:id]
-  #   authorize! :edit, @serverhost
-  # end
+  def edit
+    @appliance = WcoHosting::Appliance.find params[:id]
+    authorize! :edit, @appliance
+  end
 
   # def update
   #   @serverhost = WcoHosting::Serverhost.find params[:id]
