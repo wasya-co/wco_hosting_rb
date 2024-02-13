@@ -4,7 +4,7 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
   before_action :set_lists
 
   def create
-    params[:tmpl][:leadset_ids].delete ''
+    # params[:tmpl][:leadset_ids].delete ''
 
     @appliance_tmpl = WcoHosting::ApplianceTmpl.new params[:tmpl].permit!
     authorize! :create, @appliance_tmpl
@@ -47,7 +47,7 @@ class WcoHosting::ApplianceTmplsController < WcoHosting::ApplicationController
   end
 
   def update
-    params[:tmpl][:leadset_ids].delete ''
+    # params[:tmpl][:leadset_ids].delete ''
 
     @appliance_tmpl = WcoHosting::ApplianceTmpl.find params[:id]
     authorize! :update, @appliance_tmpl
