@@ -1,7 +1,5 @@
 
-class WcoHosting::ApplicationController < ActionController::Base
-
-  check_authorization
+class WcoHosting::ApplicationController < Wco::ApplicationController
 
   def home
     authorize! :index, ::WcoHosting::Appliance

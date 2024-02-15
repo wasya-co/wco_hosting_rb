@@ -4,23 +4,26 @@
 
   .field
     %h5 Customers
-    %ul
+    %table.bordered.data-table
+      %thead
+        %td Leadset
+        %td Amount Cents
+        %td Interval
       - @leadsets.each do |leadset|
         - price = leadset.appliance_tmpl_prices.where( product: @appliance_tmpl ).first
         - price ||= Wco::Price.new({ product: @appliance_tmpl, appliance_tmpl_leadset: leadset })
         - url = price.new_record? ? wco.prices_path : wco.price_path(price)
-        %li
-          = form_for price, url: url do |f|
-            = hidden_field_tag 'price[product_id]',   price.product_id
-            = hidden_field_tag 'price[product_type]', price.product_type
-            = hidden_field_tag 'price[appliance_tmpl_leadset_id]', leadset.id
-            .d-flex
+        = form_for price, url: url do |f|
+          = hidden_field_tag 'price[product_id]',   price.product_id
+          = hidden_field_tag 'price[product_type]', price.product_type
+          = hidden_field_tag 'price[appliance_tmpl_leadset_id]', leadset.id
+          %tr
+            %td
               %b= leadset
-              &nbsp;
-              %label Amount Cents
+            %td
               = f.number_field :amount_cents
-              %label interval
-              = f.select :interval, options_for_select( Wco::Price::INTERVALS ), class: 'select2'
+            %td
+              = f.select :interval, options_for_select( Wco::Price::INTERVALS, selected: price.interval ), class: 'select2'
               = f.submit '>'
               &nbsp;
               .gray= price.price_id || 'nil'
