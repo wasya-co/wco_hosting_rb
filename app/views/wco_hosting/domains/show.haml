@@ -1,0 +1,7 @@
+
+.domains-show
+  %h5 Domain `#{@domain}`
+
+  %ul
+    - @subdomains.each do |sub|
+      %li= sub

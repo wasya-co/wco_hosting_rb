@@ -11,6 +11,11 @@ class WcoHosting::AppliancesController < WcoHosting::ApplicationController
     authorize! :edit, @appliance
   end
 
+  def show
+    @appliance = WcoHosting::Appliance.find params[:id]
+    authorize! :show, @appliance
+  end
+
   # def update
   #   @serverhost = WcoHosting::Serverhost.find params[:id]
   #   authorize! :update, @serverhost

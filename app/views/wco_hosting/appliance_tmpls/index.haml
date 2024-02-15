@@ -22,6 +22,8 @@
         %td= tmpl.image
         %td= tmpl.volume_zip
         %td
+          %b Product:
+          .gray= tmpl.product_id
           %ul
             - tmpl.prices.each do |price|
               %li

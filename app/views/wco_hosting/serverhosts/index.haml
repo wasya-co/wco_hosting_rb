@@ -7,16 +7,17 @@
   %table.bordered
     %tr
       %th name
-      %th next_port
-      %th public_ip
       %th ssh_host
+      %th public_ip
+      %th next_port
       -# %td &nbsp;
-    - @serverhosts.each do |s|
+    - @serverhosts.each do |ser|
       %tr
         %td
-          = link_to s.name, edit_serverhost_path(s)
-        %td= s.ssh_host
-        %td= s.next_port
-        %td= s.public_ip
-        -# %td= s.inspect
+          = link_to '[~]', edit_serverhost_path(ser)
+          = ser.name
+        %td= ser.ssh_host
+        %td= ser.public_ip
+        %td= ser.next_port
+        -# %td= ser.inspect
 

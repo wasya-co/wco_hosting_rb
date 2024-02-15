@@ -3,23 +3,25 @@
   %h5 Appliances
 
   %table.bordered.data-table
-    %tr
-      %th &nbsp;
-      %th created_at
-      %th tmpl
-      %th host
-      %th service_name
+    %thead
+      %td &nbsp;
+      %td created_at
+      %td tmpl
+      %td host
+      %td service_name
+      %td port
 
     - @appliances.each do |app|
       %tr
         %td
           = link_to '[~]', edit_appliance_path(app)
           -# = link_to '[view]', appliance_path(app)
-          .gray.mini= app.id
+          .gray.mini= link_to app.id, appliance_path(app)
         %td
           = app.created_at
         %td= app.tmpl
         %td= app.host
         %td= app.service_name
+        %td= app.port
 
 
