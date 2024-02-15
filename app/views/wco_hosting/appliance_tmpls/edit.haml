@@ -2,39 +2,6 @@
 .appliance-tmpls-edit.maxwidth
   %h5 Edit ApplianceTmpl `#{@appliance_tmpl}`
 
-  .field
-    %h5 Customers
-    %table.bordered.data-table
-      %thead
-        %td &nbsp;
-        %td Leadset
-        %td Amount Cents
-        %td Interval
-      - @leadsets.each do |leadset|
-        %tr
-          - price   = leadset.appliance_tmpl_prices.where( product: @appliance_tmpl ).first
-          - price ||= Wco::Price.new({ product: @appliance_tmpl, appliance_tmpl_leadset: leadset })
-          - url     = price.new_record? ? wco.prices_path : wco.price_path(price)
-          - if !price.new_record?
-            %td
-              = button_to 'x', wco.price_path(price), method: :delete, data: { confirm: 'Are you sure?' }
-          - else
-            %td
-          = form_for price, url: url do |f|
-            = hidden_field_tag 'price[product_id]',   price.product_id
-            = hidden_field_tag 'price[product_type]', price.product_type
-            = hidden_field_tag 'price[appliance_tmpl_leadset_id]', leadset.id
-            %td
-              %b= leadset
-            %td
-              = f.number_field :amount_cents
-            %td
-              = f.select :interval, options_for_select( Wco::Price::INTERVALS, selected: price.interval ), class: 'select2'
-              = f.submit '>'
-              &nbsp;
-              .gray= price.price_id || 'nil'
 
-
-  %hr
 
   = render 'form', appliance_tmpl: @appliance_tmpl

@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/wasya-co/wco_models.git
-  revision: 2b0f4099e14cbdb0bb1751a25ef07e9fe13f0285
+  revision: 640ac9859fa325829bb10555602ec121dcf289e2
   branch: 3.1.0
   specs:
-    wco_models (3.1.0.114)
+    wco_models (3.1.0.115)
       aws-sdk-s3
       business_time
       cancancan (~> 3.5.0)
@@ -32,7 +32,7 @@ GIT
 PATH
   remote: .
   specs:
-    wco_hosting (0.0.0.18)
+    wco_hosting (0.0.0.19)
       cancancan (~> 3.5.0)
       devise (~> 4.9.3)
       haml (~> 6.3.0)
