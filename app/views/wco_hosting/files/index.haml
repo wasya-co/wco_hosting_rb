@@ -1,0 +1,6 @@
+
+.files-index.maxwidth
+  %h5
+    Files
+    = link_to '[+]', new_file_path
+  = render 'table', files: @files

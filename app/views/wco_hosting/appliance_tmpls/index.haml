@@ -1,8 +1,6 @@
 
 .appliance-tmpls-index.maxwidth
-  %h5
-    ApplianceTmpl's
-    = link_to '[+]', new_appliance_tmpl_path
+  = render '/wco_hosting/appliance_tmpls/header'
 
   %table.bordered
     %tr
@@ -19,7 +17,7 @@
           .d-flex
             = link_to '[~]', edit_appliance_tmpl_path(tmpl)
             = button_to 'x', appliance_tmpl_path(tmpl), method: :delete, data: { confirm: 'Are you sure?' }
-        %td= tmpl.kind
+        %td= link_to tmpl.kind, appliance_tmpl_path(tmpl)
         %td= tmpl.version
         %td= tmpl.image
         %td= tmpl.volume_zip

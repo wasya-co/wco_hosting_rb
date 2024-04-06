@@ -20,3 +20,11 @@ table.bordered {
 .flex-row {
   display: flex;
 }
+
+.Logs {
+  .descr {
+    max-height: 300px;
+    overflow: auto;
+  }
+}
+

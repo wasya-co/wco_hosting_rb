@@ -1,0 +1,13 @@
+
+.task-tmpls-index.maxwidth
+  .header
+    %h5.title
+      Task Tmpl`s&nbsp;
+      = link_to '[+]', new_task_tmpl_path
+
+  %ul
+    - @task_tmpls.each do |tmpl|
+      %li
+        = tmpl.slug
+        .mini.gray
+          = tmpl.inspect

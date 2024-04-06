@@ -15,7 +15,7 @@
       %tr
         %td
           = link_to '[~]', edit_serverhost_path(ser)
-          = ser.name
+          = link_to ser.name, serverhost_path(ser)
         %td= ser.ssh_host
         %td= ser.public_ip
         %td= ser.next_port

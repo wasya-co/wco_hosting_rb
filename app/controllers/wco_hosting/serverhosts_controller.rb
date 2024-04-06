@@ -31,6 +31,13 @@ class WcoHosting::ServerhostsController < WcoHosting::ApplicationController
     @new_serverhost = WcoHosting::Serverhost.new
   end
 
+  def show
+    @serverhost = WcoHosting::Serverhost.find params[:id]
+    authorize! :show, @serverhost
+
+    @files = @serverhost.files
+  end
+
   def update
     @serverhost = WcoHosting::Serverhost.find params[:id]
     authorize! :update, @serverhost

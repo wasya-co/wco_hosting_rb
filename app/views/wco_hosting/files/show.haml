@@ -1,0 +1,11 @@
+
+.files-show.maxwidth
+
+  .header
+    %h5.title
+      Files&nbsp;
+      = link_to '[+]', wco_hosting.new_file_path({ file_id: @file.id })
+
+  %ul
+    - @file.files.each do |file|
+      %li= file.inspect

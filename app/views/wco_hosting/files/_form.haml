@@ -1,0 +1,18 @@
+
+.files--form
+  = form_for file do |f|
+    = hidden_field_tag 'file[serverhost_id]', params[:serverhost_id] if params[:serverhost_id]
+
+    .field
+      %label Appliance
+      = f.select :appliance_id, options_for_select(@appliances_list, selected: file.appliance_id), class: 'select2'
+    .d-flex
+      = f.label :path
+      = f.text_field :path, class: 'flex-grow-1'
+
+    .field
+      = f.label :template_erb
+      = f.text_area :template_erb
+
+    .actions
+      = f.submit

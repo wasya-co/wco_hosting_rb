@@ -1,27 +1,49 @@
 
 .appliances-edit.maxwidth
-  %h5 Appliance `#{@appliance}`
+  .header
+    %h5.title
+      Appliance `#{@appliance}`&nbsp;
+      = link_to '[~]', edit_appliance_path(@appliance)
 
-  %ul
-    %li
-      %label.bold Leadset:
-      = link_to @appliance.leadset, wco.leadset_path(@appliance.leadset)
-    %li
-      %label.bold Env:
-      = @appliance.environment
-    %li
-      %label.bold Tmpl:
-      = @appliance.appliance_tmpl
+    %ul
+      %li.d-flex
+        = button_to 'redeploy', appliance_tmpl_run_task_path(@appliance.tmpl.id, WcoHosting::Runner::TASK_REDEPLOY_ECS_TASK, appliance_id: @appliance.id ), data: { confirm: 'Are you sure?' }
+        .gray.mini WcoHosting::Runner::TASK_REDEPLOY_ECS_TASK
+      %li.d-flex
+        = button_to 'sync', appliance_tmpl_run_task_path(@appliance.tmpl.id, WcoHosting::Runner::TASK_SYNC_ECS_TASK, appliance_id: @appliance.id ), data: { confirm: 'Are you sure?' }
+        .gray.mini WcoHosting::Runner::TASK_SYNC_ECS_TASK
 
-  .logs
+  .row
+    .col-md-6
+      %ul
+        %li
+          %label.bold Leadset:
+          = link_to @appliance.leadset, wco.leadset_path(@appliance.leadset)
+        %li
+          %label.bold Env:
+          = link_to @appliance.environment, environment_path(@appliance.environment)
+        %li
+          %label.bold Tmpl:
+          = link_to @appliance.appliance_tmpl, appliance_tmpl_path(@appliance.tmpl)
+    .col-md-6
+      %h5 rc_json
+      .descr
+        %pre= JSON.pretty_generate( @appliance.rc_json )
+
+  %hr
+  .Logs
     %h5 Logs
     %ul
       - @appliance.logs.each do |log|
         %li
-          = log.created_at
-          %b= log.label
+          .d-flex.collapse-expand{id: "log_#{log.id}" }
+            = log.created_at
+            &nbsp;
+            %b= log.label
           %pre.descr= log.message
 
+  %hr
+  %h5 inspect
   = @appliance.inspect
 
 

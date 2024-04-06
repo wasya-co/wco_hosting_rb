@@ -2,23 +2,53 @@
 - url = appliance_tmpl.new_record? ? appliance_tmpls_path : appliance_tmpl_path( appliance_tmpl )
 
 .appliance-tmpls--form
+  .row
+    .col-md-6
+      &nbsp;
+    .col-md-6
+      .field
+        %label Depends on
+        - appliance_tmpl.task_tmpls.each do |task_tmpl|
+          .a
+            = link_to task_tmpl, task_tmpl_path(task_tmpl)
+            = link_to '[~]', edit_task_tmpl_path(task_tmpl)
+            -# .gray.mini= task_tmpl.inspect
+        = form_tag add_appliance_tmpl_task_tmpl_path do
+          = hidden_field_tag :id, appliance_tmpl.id
+          = select_tag :task_tmpl_id, options_for_select(@task_tmpls_list), class: 'select2'
+          = submit_tag 'Add'
+
   = form_for appliance_tmpl, as: :tmpl, url: url do |f|
     .actions
-      = f.submit 'Submit'
+      = f.submit 'Go'
     .d-flex
-      = f.label :kind
+      %label kind (name)
       = f.text_field :kind, style: 'flex-grow: 1'
-
-      = f.label :version
+      %label version
       = f.text_field :version
+    .row
+      .col-md-6
+        .field
+          = f.label :descr
+          = f.text_area :descr
     .field
-      = f.label :descr
-      = f.text_area :descr
+      %label :ecs_task_definition_erb
+      = f.text_area :ecs_task_definition_erb
+
+
     .field
       = f.label :image
       = f.text_field :image, class: 'w-100'
+
     .field
-      %label volume_zip
-      = f.text_field :volume_zip, class: 'w-100'
+      %label volume_zip_url
+      = f.text_field :volume_zip_url, class: 'w-100'
+    .field
+      %label volume_zip_exe
+      = f.text_field :volume_zip_exe, class: 'w-100'
+
+    .field
+      %label deleted_at
+      = f.text_field :deleted_at
     .actions
-      = f.submit 'Submit'
+      = f.submit 'Go'

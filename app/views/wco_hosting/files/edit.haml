@@ -1,0 +1,9 @@
+
+.files-edit.maxwidth
+  .header
+    %h5.title
+      .gray.mini Serverhost&nbsp;
+      = link_to @serverhost.name, serverhost_path(@serverhost)
+      .gray.mini &nbspFile&nbsp;
+      = @file.path
+  = render 'form', file: @file

@@ -1,0 +1,13 @@
+
+.files--table
+  %table.bordered
+    %tr
+      %th name
+      -# %td &nbsp;
+    - files.each do |ser|
+      %tr
+        %td
+          = link_to '[~]', edit_file_path(ser)
+          = link_to ser.path, file_path(ser)
+        -# %td= ser.inspect
+

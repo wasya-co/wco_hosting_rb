@@ -5,8 +5,21 @@
       Wco Hosting
     .flex-row
       %ul
-        %li= link_to 'ApplianceTmpl`s', appliance_tmpls_path
+        %li
+          = render '/wco_hosting/appliance_tmpls/header'
         %li= link_to 'Appliances', appliances_path
+        %li
+          = link_to 'Environments', environments_path
+          &nbsp;
+          = link_to '[+]', new_environment_path
+        %li
+          = link_to 'Task Tmpls', task_tmpls_path
+          &nbsp;
+          = link_to '[+]', new_task_tmpl_path
+        %li
+          = link_to 'Tasks/Agents', tasks_path
+          &nbsp;
+          = link_to '[+]', new_task_path
         %li= link_to 'Domains', domains_path
         %li= link_to 'Serverhosts', serverhosts_path
 

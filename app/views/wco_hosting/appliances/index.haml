@@ -1,6 +1,8 @@
 
 .appliances-index.maxwidth
-  %h5 Appliances
+  %h5
+    Appliances
+    = link_to '[+]', new_appliance_path
 
   %table.bordered.data-table
     %thead
@@ -8,7 +10,7 @@
       %td created_at
       %td tmpl
       %td host
-      %td service_name
+      -# %td service_name
       %td port
 
     - @appliances.each do |app|
@@ -21,7 +23,7 @@
           = app.created_at
         %td= app.tmpl
         %td= app.host
-        %td= app.service_name
+        -# %td= app.service_name
         %td= app.port
 
 

@@ -1,0 +1,9 @@
+
+.appliance_tmpls-show.maxwidth
+  .header
+    %h5.title
+      Viewing `#{@appliance_tmpl.kind}`&nbsp;
+      = link_to '[~]', edit_appliance_tmpl_path(@appliance_tmpl)
+
+  %ul
+    %li= button_to 'redeply ecs task definition', appliance_tmpl_run_task_path(@appliance_tmpl.id, WcoHosting::Runner::TASK_REDEPLOY_ECS_TASK_DEFINITION ), data: { confirm: 'Are you sure?' }

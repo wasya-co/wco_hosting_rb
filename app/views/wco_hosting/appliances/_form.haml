@@ -1,0 +1,11 @@
+
+.appliances--form
+  = form_for appliance do |f|
+    .d-flex
+      %label tmpl
+      = f.select :appliance_tmpl_id, options_for_select( @appliance_tmpls_list, selected: appliance.appliance_tmpl_id ), {}, { class: 'select2' }
+    .d-flex
+      %label environment
+      = f.select :environment_id, options_for_select( @environments_list, selected: appliance.environment_id ), {}, { class: 'select2' }
+    .actions
+      = f.submit 'Go'

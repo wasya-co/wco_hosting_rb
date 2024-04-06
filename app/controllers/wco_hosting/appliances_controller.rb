@@ -11,6 +11,11 @@ class WcoHosting::AppliancesController < WcoHosting::ApplicationController
     authorize! :edit, @appliance
   end
 
+  def new
+
+    authorize! :new, @new_appliance
+  end
+
   def show
     @appliance = WcoHosting::Appliance.find params[:id]
     authorize! :show, @appliance
@@ -27,5 +32,15 @@ class WcoHosting::AppliancesController < WcoHosting::ApplicationController
   #   redirect_to action: :index
   # end
 
+  ##
+  ## private
+  ##
+  private
+
+  def set_lists
+    @appliance_tmpls_list = WcoHosting::ApplianceTmpl.list
+    @environments_list = WcoHosting::Environment.list
+    @new_appliance = WcoHosting::Appliance.new
+  end
 
 end

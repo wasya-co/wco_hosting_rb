@@ -1,0 +1,14 @@
+
+.serverhosts-show.maxwidth
+
+  .header
+    %h5.title
+      Serverhost `#{@serverhost.name}`&nbsp;
+      = link_to '[~]', edit_serverhost_path(@serverhost)
+
+
+  %h5.title
+    Files&nbsp;
+    = link_to '[+]', wco_hosting.new_file_path({ serverhost_id: @serverhost.id })
+  = render 'wco_hosting/files/table', files: @serverhost.files
+
