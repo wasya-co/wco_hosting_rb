@@ -20,6 +20,11 @@
           = link_to 'Tasks/Agents', tasks_path
           &nbsp;
           = link_to '[+]', new_task_path
-        %li= link_to 'Domains', domains_path
-        %li= link_to 'Serverhosts', serverhosts_path
+        %li
+          = link_to 'Domains', domains_path
+          = link_to '[+]', new_domain_path
+        %li
+          = link_to 'Serverhosts', serverhosts_path
+          = link_to '[+]', new_serverhost_path
+
 

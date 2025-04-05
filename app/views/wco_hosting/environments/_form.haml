@@ -1,0 +1,12 @@
+
+.environments--form
+  = form_for environment do |f|
+    .field
+      %label for
+      = f.select :leadset_id, options_for_select(@leadsets_list, selected: environment.leadset_id || params[:leadset_id])
+    .field
+      %label Name
+      = f.text_field :name
+
+    .actions
+      = f.submit 'Submit'

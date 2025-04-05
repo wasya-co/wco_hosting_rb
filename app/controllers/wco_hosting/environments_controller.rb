@@ -1,14 +1,33 @@
 
 class WcoHosting::EnvironmentsController < WcoHosting::ApplicationController
 
-  def index
-    authorize! :index, WcoHosting::Environment
-    @environments = WcoHosting::Environment.all
+  def create
+    @environment = WcoHosting::Environment.new params[:environment].permit!
+    authorize! :create, @environment
+
+    if @environment.save
+      flash_notice 'success'
+    else
+      flash_alert @environment
+    end
+
+    redirect_to action: :index
   end
 
   def edit
     @environment = WcoHosting::Environment.find params[:id]
     authorize! :edit, @environment
+  end
+
+  def index
+    authorize! :index, WcoHosting::Environment
+    @environments = WcoHosting::Environment.all
+  end
+
+
+  def new
+    authorize! :new, WcoHosting::Environment
+    @environment = WcoHosting::Environment.new
   end
 
   def show
@@ -28,5 +47,10 @@ class WcoHosting::EnvironmentsController < WcoHosting::ApplicationController
     redirect_to action: :index
   end
 
+  private
+
+  def set_lists
+    @leadsets_list = Wco::Leadset.list
+  end
 
 end

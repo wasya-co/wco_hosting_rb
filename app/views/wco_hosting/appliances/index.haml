@@ -12,6 +12,7 @@
       %td host
       -# %td service_name
       %td port
+      %td slug
 
     - @appliances.each do |app|
       %tr
@@ -25,5 +26,5 @@
         %td= app.host
         -# %td= app.service_name
         %td= app.port
-
+        %td= app.slug
 

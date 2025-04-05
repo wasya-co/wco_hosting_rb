@@ -22,7 +22,7 @@
     .actions
       = f.submit 'Go'
     .d-flex
-      %label kind (name)
+      %label kind
       = f.text_field :kind, style: 'flex-grow: 1'
       %label version
       = f.text_field :version
@@ -31,24 +31,32 @@
         .field
           = f.label :descr
           = f.text_area :descr
-    .field
+    .a
       %label :ecs_task_definition_erb
       = f.text_area :ecs_task_definition_erb
 
+    .a
+      %label :docker_compose_erb
+      .comment
+        Available variables: @appliance ,
+      = f.text_area :docker_compose_erb
+
 
     .field
-      = f.label :image
+      %label :image
       = f.text_field :image, class: 'w-100'
 
     .field
       %label volume_zip_url
       = f.text_field :volume_zip_url, class: 'w-100'
+
     .field
       %label volume_zip_exe
       = f.text_field :volume_zip_exe, class: 'w-100'
 
     .field
-      %label deleted_at
+      %label :deleted_at
       = f.text_field :deleted_at
+
     .actions
       = f.submit 'Go'

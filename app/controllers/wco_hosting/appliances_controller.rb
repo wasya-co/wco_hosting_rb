@@ -12,7 +12,6 @@ class WcoHosting::AppliancesController < WcoHosting::ApplicationController
   end
 
   def new
-
     authorize! :new, @new_appliance
   end
 
@@ -21,16 +20,16 @@ class WcoHosting::AppliancesController < WcoHosting::ApplicationController
     authorize! :show, @appliance
   end
 
-  # def update
-  #   @serverhost = WcoHosting::Serverhost.find params[:id]
-  #   authorize! :update, @serverhost
-  #   if @serverhost.update_attributes( params[:serverhost].permit! )
-  #     flash_notice @serverhost
-  #   else
-  #     flash_alert @serverhost
-  #   end
-  #   redirect_to action: :index
-  # end
+  def update
+    @appliance = WcoHosting::Appliance.find params[:id]
+    authorize! :update, @appliance
+    if @appliance.update_attributes( params[:appliance].permit! )
+      flash_notice @appliance
+    else
+      flash_alert @appliance
+    end
+    redirect_to action: :index
+  end
 
   ##
   ## private
