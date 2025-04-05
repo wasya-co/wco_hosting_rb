@@ -36,6 +36,11 @@ class WcoHosting::DomainsController < WcoHosting::ApplicationController
     @subdomains = WcoHosting::Appliance.where( domain: @domain.name ).map( &:subdomain )
   end
 
+  def new
+    @domain = WcoHosting::Domain.new
+    authorize! :new, @domain
+  end
+
   def update
     @domain = WcoHosting::Domain.find params[:id]
     authorize! :update, @domain
