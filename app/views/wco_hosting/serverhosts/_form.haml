@@ -18,5 +18,9 @@
       = f.label :ssh_host
       = f.text_field :ssh_host
 
+    .field
+      %label skip do resource?
+      = check_box_tag :skip_do_resource
+
     .actions
       = f.submit

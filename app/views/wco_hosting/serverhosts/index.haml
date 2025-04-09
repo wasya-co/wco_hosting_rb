@@ -10,14 +10,15 @@
       %th ssh_host
       %th public_ip
       %th next_port
-      -# %td &nbsp;
+      %th do id
     - @serverhosts.each do |ser|
       %tr
         %td
           = link_to '[~]', edit_serverhost_path(ser)
           = link_to ser.name, serverhost_path(ser)
+          .d-inline-block= button_to 'x', serverhost_path(ser), method: :delete, data: { confirm: 'Are you sure?' }
         %td= ser.ssh_host
         %td= ser.public_ip
         %td= ser.next_port
-        -# %td= ser.inspect
+        %td= ser.do_id
 
