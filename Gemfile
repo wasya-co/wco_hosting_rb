@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gemspec
+gem 'ahoy_matey'
 
 group :development, :test do
   gem 'byebug'
@@ -10,7 +11,7 @@ group :development, :test do
   gem 'rails-controller-testing', "~> 1.0.5"
   gem 'factory_bot_rails'
 
-  gem 'wco_models',  github: 'wasya-co/wco_models',     branch: '3.2.0'
+  gem 'wco_models',  github: 'wasya-co/wco_models',     branch: '3.3.0'
 
   gem 'omniauth',                       '~> 2.1.1'
   gem "omniauth-keycloak",              "~> 1.5.1"

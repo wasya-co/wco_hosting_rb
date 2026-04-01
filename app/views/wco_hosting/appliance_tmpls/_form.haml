@@ -51,8 +51,13 @@
       = f.text_field :volume_zip_url, class: 'w-100'
 
     .field
-      %label volume_zip_exe
-      = f.text_field :volume_zip_exe, class: 'w-100'
+      %label volume_zip_rb
+      = f.text_field :volume_zip_rb, class: 'w-100'
+      .comment evaluating this should return `volume_zip_url`
+
+    .field
+      %label db_zip_url
+      = f.text_field :db_zip_url, class: 'w-100'
 
     .field
       %label :deleted_at

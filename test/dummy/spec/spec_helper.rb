@@ -49,10 +49,14 @@ def destroy_every *args
 end
 
 def setup_users
+  Wco::Leadset.unscoped.map &:destroy!
+  leadset = Wco::Leadset.create!( company_url: 'test' )
+
   User.all.destroy_all
-  user = User.create!( email: 'victor@wasya.co', password: 'test1234', provider: 'keycloakopenid' )
+  user        = User.create!( email: 'victor@wasya.co', password: 'test1234', provider: 'keycloakopenid' )
+
   Wco::Profile.unscoped.map &:destroy!
-  p = Wco::Profile.create!( email: user.email )
+  profile        = Wco::Profile.create!( email: user.email, leadset: leadset )
+
   sign_in user
 end
-

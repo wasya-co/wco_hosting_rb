@@ -22,9 +22,11 @@
           = link_to '[+]', new_task_path
         %li
           = link_to 'Domains', domains_path
+          (#{WcoHosting::Domain.all.length})
           = link_to '[+]', new_domain_path
         %li
           = link_to 'Serverhosts', serverhosts_path
+          (#{WcoHosting::Serverhost.all.length})
           = link_to '[+]', new_serverhost_path
 
 
