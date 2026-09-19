@@ -11,7 +11,7 @@ group :development, :test do
   gem 'rails-controller-testing', "~> 1.0.5"
   gem 'factory_bot_rails'
 
-  gem 'wco_models',  github: 'wasya-co/wco_models',     branch: '3.3.0'
+  gem 'wco_models',  github: 'wasya-co/wco_models',     branch: '3.3.1'
 
   gem 'omniauth',                       '~> 2.1.1'
   gem "omniauth-keycloak",              "~> 1.5.1"
